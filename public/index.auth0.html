@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Auth</title>
+<!-- <script src="//cdn.auth0.com/w2/auth0-6.8.0.min.js"></script> -->
+<script src="auth0-6.8.0.js"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       'localhost:3000',
+    clientID:     'dsa7d77dsa7d7',
+    callbackURL:  'http://localhost:3000/callback',
+    callbackOnLocationHash: true
+  });
+
+
+      function login() {
+         // auth0.login({
+         //       connection: 'db-conn', //'http://localhost:3000/login',
+         //       username:   "nery",
+         //       password:   'password',
+         //       scope: 'openid offline_access'
+         //     },
+         //     function (err, profile, id_token, access_token, state, refresh_token) {
+         //       // store in cookies
+         //       // refresh_token is sent because offline_access is set as a scope
+         //       console.log(err, profile, id_token, access_token, state, refresh_token);
+         //     });
+
+         auth0.requestMagicLink({
+             email: "nery@softbox.com.br"
+           }, function (err) {
+             if (err) {
+               alert(err.error_description);
+               return;
+             }
+             // the request was successful and you should receive
+             // an email with the link at the specified address
+           });
+      }
+  //...
+</script>
+</head>
+
+<body>
+Content of the document......
+<form action="http://localhost:3000/login">
+    <input type="submit" value="Login">
+</form>
+<br>
+<input type="submit" value=" .Auth. " onclick="login();">
+</body>
+
+</html>

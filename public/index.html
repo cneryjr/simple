@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Auth</title>
+<!-- <script src="//cdn.auth0.com/w2/auth0-6.8.0.min.js"></script> -->
+<script src="hello.all.js"></script>
+<script src="hello.google.js"></script>
+<script type="text/javascript">
+
+//1036908592178-cql9aga3kd6a71irdoghanek9hdmapkt.apps.googleusercontent.com
+      hello.init({
+      	// facebook: FACEBOOK_CLIENT_ID,
+      	// windows: WINDOWS_CLIENT_ID,
+      	google: '1036908592178-cql9aga3kd6a71irdoghanek9hdmapkt.apps.googleusercontent.com'
+      /*}, {
+         // redirect_uri: 'http://162.243.36.204/redirect.html'
+         // redirect_uri: 'https://adodson.com/hello.js/redirect.html'
+         redirect_uri: 'http://neryjr.com/redirect' */
+   });
+
+      function login() {
+         hello('google').login().then(function() {
+         	alert('You are signed in to google');
+         }, function(e) {
+         	alert('Signin error: ' + e.error.message);
+         });
+
+      }
+
+      hello.on('auth.login', function(data){
+         console.console.log("auth.login => ", data);
+      }).on('auth.expired auth.logout', function(data){
+         console.console.log("auth.expired auth.logout => ", data);
+      });
+  //...
+</script>
+</head>
+
+<body>
+Content of the document......
+<form action="http://localhost:3000/login">
+    <input type="submit" value="Login">
+</form>
+<br>
+<input type="submit" value=" .Auth. " onclick="login();">
+</body>
+
+</html>
