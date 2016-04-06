@@ -7,7 +7,7 @@ cneryjr/simple:
   Build:
     - echo "Begin Build"
     - npm install
-    #- npm test
+    - npm test
 
   PreInstall:
     - echo "Begin PreInstall"
@@ -19,4 +19,4 @@ cneryjr/simple:
     - echo "Begin PostInstall"
 
   Exec:
-    - /usr/bin/nodejs server.js
+    - /usr/bin/node server.js
